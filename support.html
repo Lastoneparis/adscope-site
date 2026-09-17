@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AdScope &mdash; Support</title>
+<meta name="description" content="AdScope support: adding apps and keywords, connecting Apple Search Ads, throttling, and exports.">
+<style>
+:root{--bg:#07090c;--panel:#0e1319;--rule:#1b232d;--ink:#dfe7f0;--dim:#7f8b99;--key:#6ea8fe}
+@media(prefers-color-scheme:light){:root{--bg:#fff;--panel:#f7f9fb;--rule:#dfe4ea;--ink:#101418;--dim:#5b6673;--key:#1558c0}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:14.5px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace}
+.t{max-width:46rem;margin:0 auto;padding:0 18px 80px}
+.cmd{border-bottom:1px solid var(--rule);padding:14px 0;color:var(--dim);font-size:12.5px;letter-spacing:.05em}
+.cmd b{color:var(--key)}
+h1{font-size:28px;margin:40px 0 24px;font-weight:600;font-family:-apple-system,system-ui,sans-serif}
+h2{font-size:15px;margin:32px 0 8px;font-weight:600;font-family:-apple-system,system-ui,sans-serif}
+p{color:var(--dim);font-size:13.8px;margin-bottom:10px}
+a{color:var(--key)}
+.box{background:var(--panel);border:1px solid var(--rule);padding:16px;margin-top:24px;font-size:13.5px;color:var(--dim)}
+.box b{color:var(--ink)}
+footer{border-top:1px solid var(--rule);margin-top:50px;padding-top:20px;color:var(--dim);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="t">
+<div class="cmd"><a href="index.html">adscope</a> <b>/</b> support</div>
+<h1>Support</h1>
+
+<h2>Adding an app to track</h2>
+<p>Search the App Store by name inside AdScope and pick the result. The app is stored with its store identifier, so a later rename does not break tracking.</p>
+
+<h2>Adding keywords</h2>
+<p>Keywords are added per app and per storefront. The same term in two storefronts is two rows, because it is two measurements.</p>
+
+<h2>A refresh looks stuck</h2>
+<p>Refreshes are throttled to about one request per second and results are cached for fifteen minutes, so a large set takes a while and an immediate re-run returns the cached values. If the store starts refusing requests outright, AdScope backs off; leaving it alone for an hour is the fix, and pulling to refresh repeatedly is not.</p>
+
+<h2>Connecting Apple Search Ads</h2>
+<p>You need your own Search Ads API credentials from your Apple account. AdScope exchanges them for a token on device and stores them in the Keychain. The connection is read-only &mdash; campaigns are listed and reported on, never created or modified. There is a demo mode with clearly-badged fake data if you want to see the screens before connecting anything.</p>
+
+<h2>Exporting</h2>
+<p>Rank history exports as CSV from the app detail screen.</p>
+
+<h2>Anything else</h2>
+<p>Write to <a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a>. Saying which app, which keyword and which storefront makes the answer much faster.</p>
+
+<div class="box"><b>Note on the numbers.</b> AdScope reports what the store returned when it asked. If your rank differs from what you see searching by hand, the likely causes are a different storefront, a different device index (iPhone / iPad / Mac are separate) or personalisation on your own device.</div>
+
+<footer>© 2026 Oshi Lab · <a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a></footer>
+</div>
+</body>
+</html>

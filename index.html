@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AdScope &mdash; ASO rank tracking and Search Ads, on the phone</title>
+<meta name="description" content="Track App Store keyword ranks across storefronts and watch Apple Search Ads spend from an iPhone or iPad. Ranks are measured, not estimated.">
+<style>
+:root{--bg:#07090c;--panel:#0e1319;--rule:#1b232d;--ink:#dfe7f0;--dim:#7f8b99;
+      --up:#35c46a;--down:#e5484d;--flat:#6b7280;--key:#6ea8fe}
+@media(prefers-color-scheme:light){:root{--bg:#fff;--panel:#f7f9fb;--rule:#dfe4ea;--ink:#101418;--dim:#5b6673;--key:#1558c0}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:14.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}
+.t{max-width:50rem;margin:0 auto;padding:0 18px 80px}
+.cmd{border-bottom:1px solid var(--rule);padding:14px 0;color:var(--dim);font-size:12.5px;letter-spacing:.05em}
+.cmd b{color:var(--key)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.2;font-weight:600;letter-spacing:-.01em;margin:46px 0 14px;max-width:22ch;
+   font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+.sub{color:var(--dim);font-size:15px;max-width:52ch;margin-bottom:8px;font-family:-apple-system,system-ui,sans-serif;line-height:1.65}
+h2{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin:44px 0 14px;font-weight:600}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:8px 6px;border-bottom:1px solid var(--rule);text-align:left;font-size:13.5px}
+th{color:var(--dim);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+td.r{text-align:right}
+.up{color:var(--up)}.down{color:var(--down)}.flat{color:var(--flat)}
+ul{list-style:none}
+li{padding:9px 0 9px 20px;border-bottom:1px solid var(--rule);position:relative;color:var(--dim);font-size:13.5px}
+li::before{content:"\203a";position:absolute;left:2px;color:var(--key)}
+li b{color:var(--ink);font-weight:600}
+.warn{border-left:2px solid var(--down);background:var(--panel);padding:14px 16px;margin-top:14px;color:var(--dim);font-size:13.5px}
+.warn b{color:var(--ink)}
+a{color:var(--key)}
+footer{border-top:1px solid var(--rule);margin-top:50px;padding-top:20px;color:var(--dim);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="t">
+<div class="cmd">adscope <b>&mdash;</b> rankings &middot; search ads &middot; iphone / ipad / mac</div>
+
+<h1>Where your app actually ranks, measured one storefront at a time</h1>
+<p class="sub">AdScope polls the App Store for the keywords you care about, stores every sample it takes, and shows you the movement. It is a tracker for one developer&rsquo;s own apps, not an agency dashboard.</p>
+
+<h2>What a keyword row looks like</h2>
+<table>
+<thead><tr><th>Keyword</th><th>Store</th><th class="r">Rank</th><th class="r">7 d</th></tr></thead>
+<tbody>
+<tr><td>aso rank</td><td>us &middot; iPhone</td><td class="r">1</td><td class="r up">&#9650; 78</td></tr>
+<tr><td>keyword tracker</td><td>us &middot; iPhone</td><td class="r">14</td><td class="r up">&#9650; 3</td></tr>
+<tr><td>search ads</td><td>us &middot; iPhone</td><td class="r">51</td><td class="r down">&#9660; 27</td></tr>
+<tr><td>aso rank</td><td>us &middot; Mac</td><td class="r">1</td><td class="r flat">&mdash;</td></tr>
+</tbody>
+</table>
+<p class="sub" style="margin-top:12px">iPhone, iPad and Mac are tracked as three separate indexes, because they are three separate indexes. A term that is brutal on iPhone is often half as contested on the Mac App Store.</p>
+
+<h2>What it does</h2>
+<ul>
+<li><b>Rank history that is kept.</b> Every poll is stored as a sample and retained for a year, so a drop can be dated rather than guessed at.</li>
+<li><b>Movement, not snapshots.</b> The keyword table sorts by how far a term moved, which is the only column worth reading first.</li>
+<li><b>Apple Search Ads, read-only.</b> Connect an API key and AdScope pulls campaigns, daily spend and a 30-day series. It never creates or edits a campaign.</li>
+<li><b>Competitor keyword gaps.</b> Terms a competitor ranks for and you do not &mdash; scored on measured volume, so a gap with no traffic behind it scores zero.</li>
+<li><b>CSV export.</b> Rank history leaves the app in a format a spreadsheet can read.</li>
+</ul>
+
+<h2>The limits, plainly</h2>
+<div class="warn">
+<p><b>Apple does not publish search volume.</b> AdScope infers it from autocomplete, which counts suggestions rather than relevance &mdash; a term can show volume because it collides with an unrelated popular query. Treat the number as a ranking signal, not a traffic forecast.</p>
+<p style="margin-top:10px"><b>The store rate-limits.</b> Requests are throttled to roughly one per second and cached for fifteen minutes. A large keyword set takes minutes to refresh, and refreshing it twice in a row will not make it faster.</p>
+<p style="margin-top:10px"><b>Search Ads needs your own credentials.</b> There is no AdScope account and no server in the middle; the key lives in your Keychain on your device.</p>
+</div>
+
+<h2>Elsewhere</h2>
+<ul>
+<li><a href="support.html"><b>Support</b></a> &mdash; how to add an app, how to connect Search Ads, what to do when a refresh stalls</li>
+<li><a href="privacy/"><b>Privacy policy</b></a> &mdash; what is stored and where</li>
+<li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"><b>Licence</b></a> &mdash; Apple standard EULA</li>
+</ul>
+
+<footer>© 2026 Oshi Lab · <a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a></footer>
+</div>
+</body>
+</html>
